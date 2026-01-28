@@ -11,16 +11,16 @@ templates = Jinja2Templates(directory="templates")
 @app.get("/")
 def home(request: Request):
     regen = random.randint(1, 1000000000)
-    return templates.TemplateResponse("index.html", {"request": request, "name": "Welcome", "color": "green", "regen": regen, "first": first})
+    return templates.TemplateResponse("index.html", {"request": request, "name": "Welcome", "color_selected": "red", "color": "black", "regen": regen, "first": first})
 @app.get("/gallery")
 def home(request: Request):
-    return templates.TemplateResponse("gallery.html", {"request": request, "color": "green",})
+    return templates.TemplateResponse("gallery.html", {"request": request, "name": "", "color_selected": "red", "color": "black",})
 @app.get("/about")
 def home(request: Request):
-    return templates.TemplateResponse("about.html", {"request": request, "color": "green",})
+    return templates.TemplateResponse("about.html", {"request": request, "name": "", "color_selected": "red", "color": "black",})
 @app.get("/contact")
 def home(request: Request):
-    return templates.TemplateResponse("contact.html", {"request": request, "email": "snider@snider.com", "color": "green",})
+    return templates.TemplateResponse("contact.html", {"request": request, "email": "snider@snider.com", "color_selected": "red", "color": "black",})
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000)
